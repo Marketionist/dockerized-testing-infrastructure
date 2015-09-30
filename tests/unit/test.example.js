@@ -1,14 +1,9 @@
-/*!
- * @author:    Divio AG
- * @copyright: http://www.divio.ch
- */
-
 'use strict';
 /* global describe, it, expect, beforeEach, afterEach, fixture */
 
 // #############################################################################
 // UNIT TEST
-describe('cl.newsblog.js:', function () {
+describe('Example project js unit tests:', function () {
     beforeEach(function () {
         fixture.setBase('tests/fixtures');
         this.markup = fixture.load('example.html');
