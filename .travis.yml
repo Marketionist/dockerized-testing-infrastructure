@@ -1,8 +1,20 @@
-# sudo: required
-
 language: node_js
 node_js:
   - "0.12"
+
+env:
+  global:
+    - CI
+    - SAUCE_ACCESS_KEY
+    - SAUCE_USERNAME
+    - TRAVIS_BUILD_NUMBER
+    - TRAVIS_PULL_REQUEST
+    - TRAVIS_REPO_SLUG
+    - TRAVIS_JOB_NUMBER
+    # encrypted Sauce Labs sub-account user name
+    - secure: Q6KPZ+xTQHI/+cWfF3iI1VpkxgG5uC2w8klUhvDKLzosv96Gai2sTOxB/R3kNc3jgqsvihzRopFRdzqLNRstVt6Xl6Kr27eOTZ0gmJfUW362yTiJhNT1R+dbAAPFMNQRxODlneAsvWa+ILH3cAw9kWxTo8VGvSSFWBRhJ/Eh7JvCjpk0Rgp1ozPUXHbcupq6+lsK/RmKcquwQrtl9FXEoUO+yi6ljyYvR7OpqaZ5JR5YYVAZiG12UszYOleOkN4vKDFYJGME/U6Xa+K5Sop+372aO0mriUUa64RSA0x3EjT6grhTBFdL6359wAV9VTJy9UuTTOTtux0lznWBGfAEsHazrN1ZvnE0PweXCeVYRZdfvt3p/f70pCRYLShmiCXaNpVd08F8bG6wtUsNgwRwipn39IT56VqObvEwFflW9GJZ8Wu08bXuBs7qcMiCX6gQeuG6V5YafRK/5TOd/1biFH0ogn42bWrzc2ZxIXlLUSIdr3DfiWB72vkKw+BZnOGC+kc3rP1tPu/jTTSp8R09kiQudyV9fwImp/iGJ3CXSkOw4IxL05miSFmYO2IUs2a7i5OMiDlB06SQePvFDFDCzZ/w2YJTq0U+GxU9WaDW9fHSp6z4RNgkRlgQ5m7yRNeo2xusZcIZy0QplMAxDmIimOj30fCZ4YrO3vQjUPlungc=
+    # encrypted Sauce Labs sub-account token
+    - secure: EkkHkfXkUQdwn2oA+OFCZtvvtn7bnxuPqCtG4c4aaoPPDhA0Dkc4cDOVXu2x3Hvg2NDgJX2E8SvklRgdjH9oJfl3L42HUYN1x9YcIuJhk4WQ+rT2i7uByltHTvshP3T36mRVjwPC3ZVCpuUx1a+/xDWaeKblQDGKzSrRhtD9yc1MPsjQ00qQs106E8pq++UxJKBrynWxVQdYICJ4Webau7o9TVeo6j49HLTGa8D3X8G/Jt2PLEjyCE5ms802g1Mz8GFNp+pTl4SWYBrddGwCvXBR5RiVQ0Uptmnad78SMVtLUWWAtnIC1JbBgZGa1P3dBmAsp4ocUObqRZjm9TMBNF0Aytg8tGxnb1vcJxByfz6Y0LM+ozDSFxbUQRp8GabsTk8Lb9d/fZvySaaPOqENZHZ3wn6mwzutRRUvGCCKB0rniJcd/o9rsbWQei80WVJhpc8p9fJP/UXAivf25heVjTS7yNBfuZyGOKd+Vm/U+4H8pLZwQHNFbJLM4avnpMGOE6JYepwUGBOt/S1hVJ2vaN7qXkUDZux0HY0ARNVAN3dZ0uBqmSg73nuhu/T1EOVUVBgWLgUdTvd9VQQ9PfTfdxj3xr1P5TNbFgWJLsXdEdPFSarcPBXpy9mSQD5ESjquRgonQNrJdWn/rEASlgo5a2KzEq+xEJShgmhJH1iFvwM=
 
 install:
   - npm install -g npm
