@@ -71,6 +71,7 @@ if (process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY) {
         var browserCapability =  browser;
         browserCapability['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
         browserCapability.name = formatTaskName(browserCapability.browserName);
+        browserCapability.platform = 'Windows 7';
         return browserCapability;
     });
 }
