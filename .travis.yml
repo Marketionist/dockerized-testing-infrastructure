@@ -1,11 +1,6 @@
-sudo: required
-
 language: node_js
 node_js:
   - "0.12"
-
-services:
-  - docker
 
 env:
   global:
@@ -22,10 +17,14 @@ env:
     - secure: EkkHkfXkUQdwn2oA+OFCZtvvtn7bnxuPqCtG4c4aaoPPDhA0Dkc4cDOVXu2x3Hvg2NDgJX2E8SvklRgdjH9oJfl3L42HUYN1x9YcIuJhk4WQ+rT2i7uByltHTvshP3T36mRVjwPC3ZVCpuUx1a+/xDWaeKblQDGKzSrRhtD9yc1MPsjQ00qQs106E8pq++UxJKBrynWxVQdYICJ4Webau7o9TVeo6j49HLTGa8D3X8G/Jt2PLEjyCE5ms802g1Mz8GFNp+pTl4SWYBrddGwCvXBR5RiVQ0Uptmnad78SMVtLUWWAtnIC1JbBgZGa1P3dBmAsp4ocUObqRZjm9TMBNF0Aytg8tGxnb1vcJxByfz6Y0LM+ozDSFxbUQRp8GabsTk8Lb9d/fZvySaaPOqENZHZ3wn6mwzutRRUvGCCKB0rniJcd/o9rsbWQei80WVJhpc8p9fJP/UXAivf25heVjTS7yNBfuZyGOKd+Vm/U+4H8pLZwQHNFbJLM4avnpMGOE6JYepwUGBOt/S1hVJ2vaN7qXkUDZux0HY0ARNVAN3dZ0uBqmSg73nuhu/T1EOVUVBgWLgUdTvd9VQQ9PfTfdxj3xr1P5TNbFgWJLsXdEdPFSarcPBXpy9mSQD5ESjquRgonQNrJdWn/rEASlgo5a2KzEq+xEJShgmhJH1iFvwM=
 
 install:
-  - docker build -t test/tests .
+  - npm install -g npm
 
 before_script:
-  - docker images -a | sort | uniq
+  - npm install -g gulp
+  - npm install
 
 script:
-  - docker run --name=inttests -p 8000:80 test/tests
+  - node --version
+  - gulp tests:unit
+  - gulp tests:lint
+  - gulp tests:integration
