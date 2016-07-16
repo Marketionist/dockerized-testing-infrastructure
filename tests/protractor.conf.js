@@ -1,10 +1,5 @@
-/*!
- * @author:    Divio AG
- * @copyright: http://www.divio.ch
- */
-
 'use strict';
-/* global browser, jasmine */
+/* global require, browser, process, exports, jasmine */
 
 // #############################################################################
 // CONFIGURATION
@@ -21,7 +16,7 @@ var config = {
 
     // Capabilities to be passed to the webdriver instance
     capabilities: {
-        'browserName': 'phantomjs',
+        browserName: 'phantomjs'
         'phantomjs.binary.path': require('phantomjs').path
     },
 
@@ -68,7 +63,8 @@ if (process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY) {
     config.sauceUser = process.env.SAUCE_USERNAME;
     config.sauceKey = process.env.SAUCE_ACCESS_KEY;
     config.multiCapabilities = browsers.map(function (browser) {
-        var browserCapability =  browser;
+        var browserCapability = browser;
+
         browserCapability['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
         browserCapability.name = formatTaskName(browserCapability.browserName);
         browserCapability.platform = 'Windows 7';
