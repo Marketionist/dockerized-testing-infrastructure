@@ -2,7 +2,7 @@
     "name": "package",
     "private": true,
     "devDependencies": {
-        "browserslist-saucelabs": "^0.1.4",
+        "browserslist-saucelabs": "^0.3.0",
         "cms-protractor-helper": "^1.0.0",
         "gulp": "3.9.0",
         "gulp-eslint": "^2.1.0",
