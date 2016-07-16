@@ -19,8 +19,7 @@ node_modules
 !.coveragerc
 !.codeclimate.yml
 !.editorconfig
-!.jshintrc
-!.jscsrc
+!.eslintrc.js
 *.xml
 htmlcov
 build

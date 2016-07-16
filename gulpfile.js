@@ -1,9 +1,5 @@
-/*!
- * @author:    Divio AG
- * @copyright: http://www.divio.ch
- */
-
 'use strict';
+/* global require, __dirname, process, console */
 
 // #############################################################################
 // IMPORTS
@@ -11,8 +7,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var karma = require('karma').server;
 var protractor = require('gulp-protractor').protractor;
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
+var eslint = require('gulp-eslint');
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
 var SauceTunnel = require('sauce-tunnel');
 var tunnel;
@@ -22,12 +17,12 @@ var isTunnelCreated;
 // SETTINGS
 var PROJECT_ROOT = __dirname;
 var PROJECT_PATH = {
-    'js': PROJECT_ROOT + '/static/js',
-    'tests': PROJECT_ROOT + '/tests'
+    js: PROJECT_ROOT + '/static/js',
+    tests: PROJECT_ROOT + '/tests'
 };
 
 var PROJECT_PATTERNS = {
-    'lint': [
+    lint: [
         PROJECT_PATH.js + '/addons/*.js',
         PROJECT_PATH.tests + '/**/*.js',
         '!' + PROJECT_PATH.tests + '/coverage/**/*.js',
@@ -41,16 +36,9 @@ var PORT = parseInt(process.env.PORT, 10) || 8000;
 // LINTING
 gulp.task('lint', function () {
     return gulp.src(PROJECT_PATTERNS.lint)
-        .pipe(jshint())
-        .pipe(jscs())
-        .on('error', function (error) {
-            gutil.log('\n' + error.message);
-            if (process.env.CI) {
-                // force the process to exit with error code
-                process.exit(1);
-            }
-        })
-        .pipe(jshint.reporter('jshint-stylish'));
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 // #############################################################################

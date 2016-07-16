@@ -1,9 +1,5 @@
-/*!
- * @author:    Divio AG
- * @copyright: http://www.divio.ch
- */
-
 'use strict';
+/* global require, module, exports, process */
 
 // #############################################################################
 // CONFIGURATION
@@ -14,8 +10,9 @@ module.exports = {
         return [
             'Test', browserName, 'for',
             process.env.TRAVIS_REPO_SLUG,
-            (process.env.TRAVIS_PULL_REQUEST !== 'false' ?
-            'pull request #' + process.env.TRAVIS_PULL_REQUEST : ''),
+            // eslint-disable-next-line no-negated-condition
+            process.env.TRAVIS_PULL_REQUEST !== 'false' ?
+                'pull request #' + process.env.TRAVIS_PULL_REQUEST : '',
             'build #' + process.env.TRAVIS_JOB_NUMBER
         ].join(' ');
     },

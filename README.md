@@ -12,7 +12,8 @@ remote testing with different browser/OS combinations.
 
 You need [Docker Toolbox](https://www.docker.com/toolbox "Docker Toolbox") installed as locally
 the tests should be run in the container inside Docker image. Also make sure you
-have node.js, npm and gulp installed.
+have [node.js, npm](https://nodejs.org/en/ "node.js, npm") and
+[gulp](http://gulpjs.com/ "gulp") installed.
 
 To run the tests on your local machine follow the next steps:
 
