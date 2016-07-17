@@ -5,7 +5,6 @@
 // IMPORTS
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var karma = require('karma').server;
 var protractor = require('gulp-protractor').protractor;
 var eslint = require('gulp-eslint');
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
@@ -43,15 +42,7 @@ gulp.task('lint', function () {
 
 // #############################################################################
 // TESTS
-gulp.task('tests', ['tests:unit', 'tests:lint', 'tests:integration']);
-gulp.task('tests:lint', ['lint']);
-gulp.task('tests:unit', function (done) {
-    // run javascript tests
-    karma.start({
-        configFile: PROJECT_PATH.tests + '/karma.conf.js',
-        singleRun: true
-    }, done);
-});
+gulp.task('tests', ['lint', 'tests:integration']);
 
 gulp.task('tests:sauce:start', function (done) {
     if (!process.env.CI) {
@@ -110,13 +101,6 @@ gulp.task('tests:integration', ['tests:webdriver', 'tests:sauce:start'], functio
         .on('end', function () {
             gulp.run('tests:sauce:end');
         });
-});
-
-gulp.task('tests:watch', function () {
-    // run javascript tests
-    karma.start({
-        configFile: PROJECT_PATH.tests + '/karma.conf.js'
-    });
 });
 
 // #############################################################################
