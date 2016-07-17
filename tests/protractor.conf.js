@@ -14,10 +14,17 @@ var config = {
     // Use a number less than 1 to denote unlimited. Default is unlimited
     maxSessions: 1,
 
+    // The location of all specs that should be launched
+    specs: ['integration/specs/*.js'],
+
+    // To launch specific suite run: protractor conf.js --suite admin
+    suites: {
+        example: ['integration/specs/spec.example.js']
+    },
+
     // Capabilities to be passed to the webdriver instance
     capabilities: {
-        'browserName': 'phantomjs',
-        'phantomjs.binary.path': require('phantomjs').path
+        browserName: 'chrome'
     },
 
     // Params for setting browser window width and height - can be also
