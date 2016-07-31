@@ -26,6 +26,5 @@ before_script:
 script:
   - node --version
   - gulp lint
-  - webdriver-manager clean
   - webdriver-manager update
   - gulp tests:integration
