@@ -13,6 +13,7 @@ ENV NODE_VERSION 4.2.3
 RUN n $NODE_VERSION
 
 RUN npm install -g protractor gulp && \
+    webdriver-manager clean && \
     webdriver-manager update && \
     apt-get update && apt-get install -y xvfb wget openjdk-7-jre git && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
