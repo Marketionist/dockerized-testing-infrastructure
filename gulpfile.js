@@ -7,6 +7,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var protractor = require('gulp-protractor').protractor;
 var eslint = require('gulp-eslint');
+var webdriverUpdate = require('gulp-protractor').webdriver_update;
 var SauceTunnel = require('sauce-tunnel');
 var tunnel;
 var isTunnelCreated;
@@ -78,7 +79,8 @@ gulp.task('tests:sauce:end', function (done) {
     });
 });
 
-gulp.task('tests:integration', ['tests:sauce:start'], function () {
+gulp.task('tests:webdriver', webdriverUpdate);
+gulp.task('tests:integration', ['tests:webdriver', 'tests:sauce:start'], function () {
     if (process.env.CI && !isTunnelCreated) {
         // force the process to exit with error code if couldn't create the tunnel
         process.exit(1);
