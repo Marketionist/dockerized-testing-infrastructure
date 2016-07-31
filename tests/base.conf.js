@@ -17,5 +17,5 @@ module.exports = {
         ].join(' ');
     },
 
-    sauceLabsBrowsers: b2s({ browsers: ['last 2 Chrome versions'] })
+    sauceLabsBrowsers: b2s({ browsers: ['chrome 48'] })
 };
